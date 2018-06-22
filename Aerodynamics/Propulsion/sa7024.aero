@@ -1,0 +1,11 @@
+
+ Sect# =   1 r/R =     0.0000
+ ========================================================================
+ Zero-lift alpha (deg):  -2.989        Minimum Cd           : 0.0080
+ d(Cl)/d(alpha)       :  6.34        Cl at minimum Cd     : 0.5483
+ d(Cl)/d(alpha)@stall :  0.100         d(Cd)/d(Cl**2)       : 0.0405
+ Maximum Cl           :  1.22        Reference Re number  :  200000.
+ Minimum Cl           : -0.336        Re scaling exponent  : -0.4187
+ Cl increment to stall:  0.100        Cm                   : -0.0878
+                                      Mcrit                :  0.800
+ ========================================================================

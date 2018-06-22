@@ -1,0 +1,12 @@
+Material properties 
+matID   E11     E22     G12    nu12   density  s11_fT  s11_fC  s22_yT  s22_yC   s12_y  MinThickness matName
+(-)    (Pa)    (Pa)    (Pa)     (-)  (kg/m^3)    (Pa)    (Pa)    (Pa)    (Pa)    (Pa)  (m) (-) (-) (-) (-)
+1	3.18E+09	3.18E+09	2.40E+09	0.38	0   	Inf       -Inf      Inf      -Inf       Inf 	    0.0000125   (Mylar)	
+2	2.91E+10	2.77E+10	3.80E+09	0.138	0       Inf       -Inf      Inf      -Inf       Inf         0.000171	(Solar)	
+3	2.91E+10	2.77E+10	3.80E+09	0.138	0    	Inf       -Inf      Inf      -Inf       Inf         0.000033    (Fiberglass)	
+4	3.60E+07	3.60E+07	1.30E+07	0.3     0   	Inf       -Inf 	    Inf      -Inf       Inf         0.001       (Rohacell-Skin)
+5	3.60E+07	3.60E+07	1.30E+07	0.3     34.8	Inf       -Inf 	    Inf      -Inf       Inf         0.001       (Rohacell-Soft)
+6	5.78E+08	5.78E+08	3.64E+08	0.3     300 	Inf       -Inf  	Inf      -Inf       Inf         0.001       (Rohacell-Stiff)
+7	2.48E+11	5.82E+09	4.00E+09	0.303	1555	1.42E+09  -3.73E+08	1.21E+07 -7.11E+07	2.99E+07	0.000115	(M55J)
+8	50.616e9	50.616e9	2.397e9     0.043	1335	261.12e6  -158.52e6	261.12e6 -158.52e6	70.52e6     0.000112    (HR40)
+9	1.00E+01	1.00E+01	1.00E+01	0.045	0.0001	Inf       -Inf      Inf      -Inf       Inf         1.00E-06	(null)

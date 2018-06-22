@@ -1,0 +1,100 @@
+-----  Input File  -------------------------------------------------------------
+This design is based approximately from D. Griffith and T. Ashwill(2011) "The Sandia 100-m All-Glass Baseline Wind Turbine Blade: SNL100-00" 
+This line is for user comments.  
+-----  Analysis Options  -------------------------------------------------------
+false            SELF_WEIGHT:    Include self-weight as a body force? (choose true or false)
+false           BUOYANCY:       Include buoyancy as a body force? (choose true or false)
+false            CENTRIF:        Include centrifugal force as a body force? (choose true or false)
+false            DISP_CF:        Apply correction factors to the beam displacements? (choose true or false)
+0               N_MODES:        Number of modes to be computed 
+2              N_ELEMS:        Number of blade finite elements to be used in the modal analysis
+-----  Optimization  -----------------------------------------------------------
+true           OPTIMIZE:       Perform optimization of composite layup?
+GS              OPT_METHOD:     Optimization algorithm for the optimization of composite layup (choose 'PS', 'GS', or 'PSO')
+false           OPT_PITAXIS:    Optimize the pitch axis?
+0.375           PITAXIS_VAL:    Pitch axis value outboard of max chord (ignored if OPT_PITAXIS = false)
+1               INB_STN:        Inboard station where the leading and trailing edge panels, spar caps, and shear webs begin
+2              TRAN_STN:       Station where the root transition ends
+7              OUB_STN:        Outboard station where the leading and trailing edge panels, spar caps, and shear webs end
+4               NUM_CP:         Number of control points between INB_STN and OUB_STN
+true            READ_INITX:     Read the initial values for the design variables from INITX_FILE?
+InitX.inp      INITX_FILE:     Input file for the intitial values of the design variables.
+false            WRITE_STR:      Write structural input files at each function evaluation? (recommended to set = false, unless for debugging purposes)
+false           WRITE_F_ALL:    Write the fitness value and penalty factors at each function evaluation? (recommended to set = false, unless for debugging purposes)
+false           WRITE_X_ALL:    Write the design variables at each function evaluation? (recommended to set = false, unless for debugging purposes)
+false           WRITE_X_ITER:   Write the design variables at each iteration? (recommended to set = false, unless for debugging purposes)
+-----  Constraints  ------------------------------------------------------------
+5.0            MAX_TIP_D:      Maximum allowable tip deflection (m) (deflection in the x-direction of global coord. system)
+1.0             MIN_FREQ_SEP:   Minimum allowable difference between the blade rotation frequency and blade natural frequencies (Hz)
+-----  Environmental Data  -----------------------------------------------------
+1.225           FLUID_DEN:      Fluid density (kg/m^3)
+9.81            GRAV:           Gravitational acceleration (m/s^2)
+-----  Blade Data  -------------------------------------------------------------
+9              NUM_SEC:        Number of blade cross sections
+100             BLD_LENGTH:     Blade length (m)
+0             HUB_RAD:        Hub radius (m)
+0             SHAFT_TILT:     Shaft tilt angle (deg)
+0            PRE_CONE:       Pre-cone angle (deg)
+90              AZIM:           Azimuth angle (deg)
+0.0             BLD_PITCH:      Blade pitch angle (deg)
+0.0             ROT_SPD:        Rotor rotational speed (rpm)
+cosine         INTERP_AF:      Interpolate airfoil coordinates? (choose "none", "cosine", or "equal" with no quotation marks)
+60              N_AF:           Number of points in interpolated airfoil coordinates (ignored if INTERP_AF = none)
+mats_WT.inp     MATS_FILE:      Input file for material properties
+0               FILLER_DENS:    (CURRENTLY IGNORED) Density of blade filler material (kg/m^3) (enter 0 if no filler material exists)
+zFrac     aeroTwst        chord      pitAxis         px_a         py_a         qz_a    af_shape_file    int_str_file
+  (-)        (deg)          (m)          (-)        (N/m)        (N/m)          (N)              (-)             (-)
+0	0	2	0.25	0	0	0	dae11.pcf	section1.temp									
+0.125	0	2	0.25	0	0	0	dae11.pcf	section2.temp	
+0.25	0	2	0.25	0	0	0	dae11.pcf	section3.temp	
+0.375	0	2	0.25	0	0	0	dae21.pcf	section4.temp	
+0.5	0	2	0.25	0	0	0	dae21.pcf	section5.temp	
+0.625	0	1.65	0.25	0	0	0	dae21.pcf	section6.temp	
+0.75	0	1.3	0.25	0	0	0	dae31.pcf	section7.temp	
+0.875	0	0.95	0.25	0	0	0	dae31.pcf	section8.temp	
+1	0	0.6	0.25	0	0	0	dae31.pcf	section9.temp	
+-----  Shear Web Data  ---------------------------------------------------------
+2               NUM_WEBS:       number of webs
+10              WEB_NODES:      number of nodes in each web (ignored if NUM_WEBS = 0)
+webNum    inbStn    oubStn     inbChLoc     oubChLoc (This table of values is ignored if OPTIMIZE = true)
+   (-)       (-)       (-)          (-)          (-)
+     1         1        9       0.3695       0.1095
+     2         1        9       0.6300       0.6405
+-----  Output Options  ---------------------------------------------------------
+false           TAB_DEL:        Tab delimited text output files?
+false            PROPS_FILE:     Write structural properties text output file? 
+false           LOAD_DSP_FILE:  Write loads and displacement text output file? 
+false           PANEL_FILE:     Write panel data text output file?
+false           LAMINA_FILE:    Write lamina data text output file?
+false           DATA_GUI:       Open graphical user interface (GUI) to visualize geometry, panel, and layer data?
+false           SAVE_PLOTS:     Save plots to a file? (only saves plots which are actually created)
+-fig            SAVE_FIG_FMT:   Image file format. Enter -fig to save as MATLAB .fig, otherwise enter a comma delimited (no spaces) list of format options (ex: -png,-r300,-a2)
+false            PLOT_OPT_ITER:  Plot information on design variables and convergence criteria during optimization iterations? (ignored if OPTIMIZE = false)
+false           PLOT_F_BLD:     Plot applied forces on the blade geometry?
+false           PLOT_DISP_BLD:  Plot displaced blade geometry?
+false           PLOT_GBL_SYS:   Plot the applied forces & displaced blade geometry in the global coordinate system? (ignored if PLOT_F_BLD and PLOT_DISP_BLD are false)
+false           PLOT_YMOD:      Plot panel effective Young's modulus? 
+false           PLOT_GMOD:      Plot panel effective shear modulus? 
+false           PLOT_MASS_DEN:  Plot mass distribution?
+false           PLOT_PRIN_ANG:  Plot angle of principal axes?
+false           PLOT_AT_STFF:   Plot axial and torsional stiffness?
+false           PLOT_BSTFF:     Plot bending stiffness?
+false           PLOT_INER:      Plot mass moments of inertia?
+false           PLOT_CENTERS:   Plot locations of mass center, tension center, and shear center?
+false           PLOT_NORMS:     Plot panel normal stress? 
+false           PLOT_SHEARS:    Plot panel shear stress?
+false           PLOT_BCRIT:     Plot panel buckling criteria? 
+false           PLOT_E11:       Plot lamina 1st principal strain? 
+false           PLOT_E22:       Plot lamina 2nd principal strain? 
+false           PLOT_E12:       Plot lamina principal shear strain? 
+false           PLOT_S11:       Plot lamina 1st principal stress? 
+false           PLOT_S22:       Plot lamina 2nd principal stress? 
+false           PLOT_S12:       Plot lamina principal shear stress? 
+false           PLOT_S11_FC:    Plot lamina 1st principal stress failure criteria? 
+false           PLOT_S22_FC:    Plot lamina 2nd principal stress failure criteria? 
+false           PLOT_S12_FC:    Plot lamina principal shear stress failure criteria?
+false           PLOT_MODE_D:    Plot modal displacements?
+false           PLOT_MODE_S:    Plot modal slopes?
+false           PLOT_APPLOADS:  Plot applied loads?
+false           PLOT_RESLOADS:  Plot resultant loads?
+false           PLOT_DEFLECT:   Plot blade centroidal deflections?
