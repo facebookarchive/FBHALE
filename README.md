@@ -4,7 +4,7 @@ FBHALE was developed by Facebook to aid in the conceptual design of HALE
 aircraft. The physics modeled are specifically tailored to tackle many of
 the challenges encountered during HALE aircraft design.
 
-FBHALE is written in Matlab, files are included to compile the code to
+FBHALE is written in MATLAB, files are included to compile the code to
 binaries.
 
 To date FBHALE has been run on the following operating systems:
@@ -14,25 +14,26 @@ Ubuntu
 
 Additional Required Software
 ----------------------------
-XROTOR
+XROTOR  
+XFOIL  
 ASWING*
 
 Software marked with a "*" requires a special build process described
 below.
 
-*Custom ASWING Compelation Steps
+*Custom ASWING Compilation Steps
 The steps below outline changes that must be made when complying ASWING to
 ensure proper interface with FBHALE.
 
 ASWING Source Mods:
 -------------------------------
-The following edits to ASWING's source files are necessary to aid in the 
-integration of ASWING with the optimization framework. Version 6.02 is 
-assumed. Line numbers are mentioned with respect to the unmodified source 
+The following edits to ASWING's source files are necessary to aid in the
+integration of ASWING with the optimization framework. Version 6.02 is
+assumed. Line numbers are mentioned with respect to the unmodified source
 files.  
 
 1. Increase available number of sensors.
-   In DIMEN.INC, line no: 19, set NSENX = 60. This setting ensures that 
+   In DIMEN.INC, line no: 19, set NSENX = 60. This setting ensures that
 enough sensors are available for the required structural discretization.
 
 2. Output stability derivative with respect to deflected CG.
@@ -51,7 +52,7 @@ enough sensors are available for the required structural discretization.
       XYZREF(3,3) = RCGXYZ(3,IPNT)
 
 3. Change display precision for t, y, z, f_aero after eXec operation.
-   In io.f, inside subroutine DUMPIT (LU, IPNT) in line nos: 1601-1602, 
+   In io.f, inside subroutine DUMPIT (LU, IPNT) in line nos: 1601-1602,
    for t precision, set:
       NWID(0) = 9
       NDEC(0) = 4
@@ -70,24 +71,24 @@ enough sensors are available for the required structural discretization.
 
 Set Up
 ------
-If running on Windows XROTOR and ASWING must be on your system path. If
-running on MacOS XROTOR and ASWING must be in your Matlab path.
+If running on Windows, XROTOR, XFOIL and ASWING must be on your system path. If
+running on MacOS, XROTOR, XFOIL and ASWING must be in your Matlab path.
 
 Test system set up by running /Tools/CheckSystem.m.
 
 Documentation/Theory
 --------------------
-Included in the /Docs file are two papers presented at AIAA Aviation 2018 
-that highlight the physical modeling, the sizing philosophy for each 
+Included in the /Docs file are two papers presented at AIAA Aviation 2018
+that highlight the physical modeling, the sizing philosophy for each
 subsystem and the code architecture.
 
- Docs/PartI_SolarPoweredSingleandMultipleBoomAircraft.pdf
+ Docs/PartI_SolarPoweredSingleandMultipleBoomAircraft.pdf  
  Docs/PartII_SolarPoweredFlyingWingAircraft.pdf
 
 Example Cases
 -------------
 The Runs/ folder contains example aircraft and inputs that can be run by
-running the provided .m files. The example .m files contains the
+running the provided .m files. The example .m files contain the
 optimization variables. For each .m file in the runs folder there is a
 corresponding subfolder of the same name that contains the specific inputs
 for that example.
@@ -99,7 +100,7 @@ and how the aircraft sizing is progressing.
 
 Example Run Sequence:
 
- >>SingleBoom.m
+>> SingleBoom.m
 
 Code Overview
 -------------
@@ -122,9 +123,9 @@ subfield. Using these inputs the structural properties, mass, and .xCG of
 each beam is found. Each beams field name must be added to
 optim.aircraft.beamNames in DesignInputs.m.
 
-All point masses must have .mass_kg specified, number of instances (.N) 
-defined and a .xCG, .y_m and .zCG location defined or subsequently set / 
-updated. The field name for each point mass must be added to 
+All point masses must have .mass_kg specified, number of instances (.N)
+defined and a .xCG, .y_m and .zCG location defined or subsequently set /
+updated. The field name for each point mass must be added to
 optim.aircraft.pointMassNames in DesingInputs.m.
 
 The number of instances of a given entity is specified by the field .N. .N
@@ -144,12 +145,12 @@ optim.propulsion.mass_kg = [10 10]
 optim.propulsion.xCG_m   = [0 2.5]
 
 The aircraft CG is computed in UpdateMassProperties.m which computes the
-CG of all beams and point masses using their .mass_kg and location.The 
+CG of all beams and point masses using their .mass_kg and location. The
 placement of various masses is done in a configuration dependent file named
 UpdateMassLocations.m located in appropriate subfolder in Runs.
 
 ## License
 
-By contributing to FBHALE, you agree that your contributions will be 
-licensed under the LICENSE or COPYING file in the root directory of this 
+By contributing to FBHALE, you agree that your contributions will be
+licensed under the LICENSE or COPYING file in the root directory of this
 source tree.

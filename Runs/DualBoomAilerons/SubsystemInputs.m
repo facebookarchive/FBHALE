@@ -17,7 +17,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 %}
   
-function [optim] = ShortTermSubsystems(optim)
+function [optim] = SubsystemInputs(optim)
 %==========================================================================
 % Power collection and storage
 %==========================================================================
@@ -89,7 +89,7 @@ optim.landingGear.mass_kg	= .02*optim.MGTOW_kg/sum(optim.landingGear.N) * ones(1
 % Avionics & Payload
 %==========================================================================
 
-% Avionins
+% Avionics
 % Find configuration dependent avionics mass
 optim.avionics.N	= 1;
 optim.avionics.mass_kg = 5.1*optim.MGTOW_kg/550 + 12.1*(optim.wing.bref_m/70) + 10.7; %servo, wiring, computers

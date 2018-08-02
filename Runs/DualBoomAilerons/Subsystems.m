@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 function optim = Subsystems(optim)
 
 % populate variable input values
-optim = GetVariableSubSystemPerfCost(optim);
+optim = GetVariableSubSystemPerf(optim);
 
 optim = SubsystemInputs(optim);
 

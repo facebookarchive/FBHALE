@@ -41,7 +41,7 @@ for i = 1:length(varNames)
 end
 
 aircraftName = 'SingleBoom';
-techTypes = {'shortTerm', 'longTermHighCostHighPerf', 'longTermHighCostLowPerf', 'longTermLowCostHighPerf','longTermLowCostLowPerf'};
+techTypes = {'shortTerm'};
 techType  = techTypes{techTypeIndex};
 
 %% Run Framework::
