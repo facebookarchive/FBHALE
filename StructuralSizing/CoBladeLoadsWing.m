@@ -57,7 +57,7 @@ end
 function s = CorrectSigns (s)
 % Correct signs to match conventions 
 
-    s.limitLoads.Vx = s.limitLoads.Fc (:);
+    s.limitLoads.Vx = -s.limitLoads.Fc (:);
     s.limitLoads.Vy = s.limitLoads.Fn(:);
     s.limitLoads.Vz = s.limitLoads.Fs(:);
     s.limitLoads.Mx = -s.limitLoads.Mc(:);
