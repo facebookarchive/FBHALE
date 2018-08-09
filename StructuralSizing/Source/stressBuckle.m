@@ -161,7 +161,7 @@ switch flag
             end
             Nxb           = max((NormS.stress_zz{n})*t - mean(NormS.stress_zz{n}*t));
             
-            lambda        = roots([(Nxy/Nxy_cr)^2+(Nxb/Nxb_cr)^2 (Nxw/Nxw_cr)^2 -1]);
+            lambda        = roots([(Nxy/Nxy_cr)^2+(Nxb/Nxb_cr)^2 (Nxw/Nxw_cr) -1]);
             
             if ~isempty(lambda)
             Buckle        = [Buckle; max([1./lambda(lambda>0)])];
